@@ -1,0 +1,49 @@
+<apex:page standardController="Expense__c" renderAs="pdf" extensions="ExpenseEXT">
+<h4>Expense During {!Expense__c.Event__c} on {!Expense__c.Date__c}</h4>
+      
+<html>
+    <head>
+        <style> 
+            body { font-family: 'Arial Unicode MS'; }
+            .MoneyReceipt { font: bold 20px; color: gray; }  
+        </style>
+    </head>
+    <body>
+        <center>
+            <table border="2"  width="600px" Class="center" >
+              <tr>
+                 <td>TOTAL AMOUNT</td>
+                 <td>{!Expense__c.Amount__c}</td>
+              </tr>
+              <tr>
+                    <td>EVENT DATE</td>
+                    <td>{!Expense__c.Date__c} </td>
+              </tr>
+              <tr>
+                    <td>EVENT</td>
+                    <td>{!Expense__c.Event__c}</td>
+              </tr>
+              <tr>
+                    <td>TOTAL CONTRIBUTION</td>
+                    <td>{!Expense__c.Total_Contribuion__c} </td>
+              </tr>
+                        
+            </table> 
+            
+            <h5>expenses details</h5>
+            <table border="2"  width="600px" Class="center">
+             <tr>
+                <td> Expenses </td>
+                <td> Name </td>
+             </tr>   
+            <apex:repeat value="{!memExp}" var="i">
+             <tr><td> {!i.Contribution_Amount__c}</td>
+                 <td> {!i.Member__r.First_Name__c}</td>
+             </tr>    
+            </apex:repeat>  
+            </table> 
+                    
+        </center>
+    </body>
+   </html>
+</apex:page>

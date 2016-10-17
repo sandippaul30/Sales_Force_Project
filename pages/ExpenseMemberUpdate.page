@@ -1,0 +1,20 @@
+<apex:page standardController="Expense_Member__c" extensions="ExpenseMemberEditExtensions">
+    <apex:pageBlock >
+        <apex:form >
+        
+            <apex:pageBlockSection >
+                <apex:inputText value="{!Expense_Member__c.Contribution_Amount__c}"/>
+                <apex:inputField value="{!Expense_Member__c.Expense_Amount__c}"/>
+                <apex:inputField value="{!Expense_Member__c.Member__c}"/>
+                <apex:inputField value="{!Expense_Member__c.Member_Email__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton action="{!edit}" value="Update"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+        </apex:form>
+    </apex:pageBlock>  
+</apex:page>

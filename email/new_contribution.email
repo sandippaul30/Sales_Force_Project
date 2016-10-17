@@ -1,0 +1,41 @@
+<messaging:emailTemplate subject="Email alert to new contributors" recipientType="User" relatedToType="Expense_Member__c">
+
+    <messaging:attachment renderAs="PDF" filename="invoice.pdf">
+        <html>
+            <head>Contribution Details</head>
+            <body>
+                <table border="1" width="600px" class="center">
+                <tr>
+                    <td>Name</td>
+                    <td>{!relatedTo.Member__r.First_Name__c} {!relatedTo.Member__r.Last_Name__c}</td>
+                </tr>
+                <tr>
+                    <td>Your Contribution</td>
+                    <td>{!relatedTo.Contribution_Amount__c}</td>
+                </tr>
+                <tr>
+                    <td>Expense Amount</td>
+                    <td>{!relatedTo.Expense_Amount__r.Amount__c}</td>
+                </tr>
+                <tr>
+                    <td>Event Name</td>
+                    <td>{!relatedTo.Expense_Amount__r.Event__c}</td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>{!relatedTo.Expense_Amount__r.Date__c}</td>
+                </tr>
+                <tr>
+                    <td>Total Contribution</td>
+                    <td>{!relatedTo.Expense_Amount__r.Total_Contribuion__c}</td>
+                </tr>
+                </table>
+            </body>
+        </html>
+    </messaging:attachment>
+    
+    <messaging:plainTextEmailBody >
+        Thanks! {!relatedTo.Member__r.First_Name__c} {!relatedTo.Member__r.Last_Name__c} for this contribution. Please,find the total details in the attachment.       
+    </messaging:plainTextEmailBody>
+    
+</messaging:emailTemplate>

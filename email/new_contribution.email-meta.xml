@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>37.0</apiVersion>
+    <available>true</available>
+    <description>Send Email alert to new contributors</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>new contribution</name>
+    <style>none</style>
+    <type>visualforce</type>
+</EmailTemplate>

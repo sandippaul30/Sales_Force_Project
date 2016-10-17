@@ -1,0 +1,23 @@
+<apex:page controller="EMController" action="{!fetchRecord}">
+  <apex:form >
+    <table border="1">
+        <th>
+          <td>Member Name</td>  
+          <td>EmailId</td>
+          <td>Expense Amount</td>  
+          <td>Contribution Amount</td>        
+        </th>
+        <apex:repeat value="{!expenseMembers}" var="i">
+            <tr>
+                <td></td>
+                <td>{!i.Member__r.First_Name__c} {!i.Member__r.Last_Name__c}</td>
+                <td>{!i.Member_Email__c}</td>
+                <td>{!i.Expense_Amount__r.Amount__c}</td>
+                <td>{!i.Contribution_Amount__c}</td>
+                <td><apex:commandLink action="{!Redirect}"> Edit <apex:param name="id" value="{!i.Id}"/> </apex:commandLink></td>
+                <td><apex:commandLink action="{!toRedirect}"> Delete <apex:param name="id" value="{!i.Id}"/> </apex:commandLink></td>
+            </tr>
+        </apex:repeat> 
+    </table>
+  </apex:form>
+</apex:page>
